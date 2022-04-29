@@ -1,0 +1,48 @@
+---
+- name: Instala pacotes de dependencia do sistema
+# LOOP FORMA ATUAL
+  apt:
+    name:
+    - php-fpm
+    - apache2
+    - libapache2-mod-php
+    - php-ssh2
+    - php-gd
+    - php-mysql
+    state: latest
+  become: yes
+# LOOP FORMA DEPRECATED
+  # apt:
+  #   name: "{{ item }}"
+  #   state: latest
+  # become: yes
+  # with_items:
+  #   - php-fpm
+  #   - apache2
+  #   - libapache2-mod-php
+  #   - php-ssh2
+  #   - php-gd
+  #   - mysql-server-5.7
+  #   - python-mysqldb
+  #   - php-mysql
+
+
+# TASKS SEM LOOP
+# - name: Instala php-fpm
+#   apt:
+#     name: php-fpm
+#     state: latest
+#   become: yes
+# - name: Instala apache2
+#   apt:
+#     name: apache2
+#     state: latest
+#   become: yes
+# - name: Instala modphp
+#   apt:
+#     name: libapache2-mod-php
+#     state: latest
+#   become: yes
+
+# EXEMPLO COMANDO SHELL
+#- shell: 'echo hello > /vagrant/world.txt'
